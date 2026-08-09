@@ -111,10 +111,10 @@
             box-shadow: 0 6px 15px rgba(197, 155, 39, 0.4);
         }
 
-        /* Hero Banner */
+        /* Hero Banner (Atayb Inspired) */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(13, 25, 18, 0.9)), url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(13, 25, 18, 0.92)), url('hero-bg.jpg') center/cover no-repeat;
             color: var(--white);
             padding: 6rem 8%;
             text-align: center;
@@ -149,7 +149,7 @@
             margin-bottom: 2rem;
         }
 
-        /* Feature Strip */
+        /* Feature Strip (مستوحى من مميزات أطايب) */
         .features-strip {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -196,7 +196,7 @@
             color: var(--text-muted);
         }
 
-        /* Section Title Header */
+        /* Product Categories */
         .section-title {
             text-align: center;
             margin: 4rem 0 2.5rem 0;
@@ -214,61 +214,6 @@
             margin-top: 0.3rem;
         }
 
-        /* Heritage Visual Gallery Section */
-        .gallery-section {
-            padding: 0 8% 3rem 8%;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            height: 280px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border: 2px solid #eae2d0;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(10, 25, 18, 0.88), transparent 60%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-            color: var(--white);
-        }
-
-        .gallery-overlay h3 {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--accent-gold);
-            margin-bottom: 0.2rem;
-        }
-
-        .gallery-overlay p {
-            font-size: 0.88rem;
-            color: #d1d5db;
-        }
-
-        /* Products Section */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -305,22 +250,15 @@
             z-index: 2;
         }
 
-        .product-img-container {
+        .product-img {
             width: 100%;
-            height: 210px;
-            overflow: hidden;
+            height: 200px;
             background-color: #f3f4f6;
-        }
-
-        .product-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover .product-img-container img {
-            transform: scale(1.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-main);
         }
 
         .product-info {
@@ -490,8 +428,8 @@
         </a>
         <nav>
             <a href="#home">الرئيسية</a>
-            <a href="#gallery">الهوية والتراث</a>
             <a href="#products">الأصناف والتغليف</a>
+            <a href="#features">لماذا تمور الخالد؟</a>
             <a href="#contact" class="btn-gold">طلب بكميات / جملة</a>
         </nav>
     </header>
@@ -504,13 +442,13 @@
         <a href="#products" class="btn-gold" style="padding: 0.8rem 2rem; font-size: 1.05rem;">تصفح تشكيلتنا</a>
     </section>
 
-    <!-- Features Strip -->
-    <div class="features-strip">
+    <!-- Features Strip Inspired by Atayb -->
+    <div class="features-strip" id="features">
         <div class="feature-item">
             <div class="feature-icon"><i class="fas fa-certificate"></i></div>
             <div class="feature-text">
                 <h4>جودة معتمدة</h4>
-                <p>فرز وااختبار دقيق للأصناف</p>
+                <p>فرز واختبار دقيق للأصناف</p>
             </div>
         </div>
         <div class="feature-item">
@@ -536,46 +474,9 @@
         </div>
     </div>
 
-    <!-- Heritage Visual Gallery -->
-    <section class="gallery-section" id="gallery">
-        <div class="section-title">
-            <h2>أصالة التراث وفخامة التقديم</h2>
-            <p>لقطات تعكس عراقة الجودة وعنايتنا البالغة بالتفاصيل</p>
-        </div>
-
-        <div class="gallery-grid">
-            <!-- Image 1 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80" alt="ثمار التمر التراثية">
-                <div class="gallery-overlay">
-                    <h3>أصالة المحصول</h3>
-                    <p>انتقاء يدوي مباشر من مزارع النخيل الفاخرة</p>
-                </div>
-            </div>
-
-            <!-- Image 2 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80" alt="الضيافة العربية">
-                <div class="gallery-overlay">
-                    <h3>رموز الضيافة العربية</h3>
-                    <p>الرفيق الأول للقهوة السعودية واللقاءات الراقية</p>
-                </div>
-            </div>
-
-            <!-- Image 3 -->
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80" alt="واحات النخيل">
-                <div class="gallery-overlay">
-                    <h3>واحات الخالد</h3>
-                    <p>نخل أصيل يُثمر أفضل التمور العالية الجودة</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Products Section -->
     <section id="products">
-        <div class="section-title" style="margin-top: 1rem;">
+        <div class="section-title">
             <h2>تشكيلة تمور الخالد الفاخرة</h2>
             <p>اختر ما يناسب ذوقك من التمور النثرية، المحشية، وعلب التقديم</p>
         </div>
@@ -584,9 +485,7 @@
             <!-- Product 1 -->
             <div class="product-card">
                 <span class="product-badge">فاخر VIP</span>
-                <div class="product-img-container">
-                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="تمر مجدول">
-                </div>
+                <div class="product-img">🌴</div>
                 <div class="product-info">
                     <h3>تمر مجدول (Medjool)</h3>
                     <p>تمر مجدول ملكي مميز بحجمه الكبير وقوامه الطري المفضل عالمياً.</p>
@@ -600,9 +499,7 @@
             <!-- Product 2 -->
             <div class="product-card">
                 <span class="product-badge">الأكثر طلباً</span>
-                <div class="product-img-container">
-                    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=600&q=80" alt="سكري القصيم">
-                </div>
+                <div class="product-img">✨</div>
                 <div class="product-info">
                     <h3>سكري القصيم الملكي</h3>
                     <p>تمر سكري مفتل ملكي محفوف بالعناية ومناسب لكافة مناسبات الضيافة.</p>
@@ -616,9 +513,7 @@
             <!-- Product 3 -->
             <div class="product-card">
                 <span class="product-badge">هدايا وتوزيعات</span>
-                <div class="product-img-container">
-                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" alt="محاشي التمور">
-                </div>
+                <div class="product-img">🎁</div>
                 <div class="product-info">
                     <h3>بكج محاشي التمور</h3>
                     <p>تمر خلاص وسكري محشي بالمكسرات الفاخرة ومغلف بعبوات التقديم.</p>
@@ -632,9 +527,7 @@
             <!-- Product 4 -->
             <div class="product-card">
                 <span class="product-badge">تصدير</span>
-                <div class="product-img-container">
-                    <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80" alt="خلاص وصقعي">
-                </div>
+                <div class="product-img">🥇</div>
                 <div class="product-info">
                     <h3>تمر خلاص وصقعي</h3>
                     <p>أصناف ممتازة معبأة تحت تفريغ الهواء للحفاظ على جودتها ونكهتها.</p>
@@ -665,8 +558,8 @@
                 <h4>روابط سريعة</h4>
                 <ul>
                     <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#gallery">الهوية والتراث</a></li>
                     <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#features">مميزاتنا</a></li>
                 </ul>
             </div>
 
