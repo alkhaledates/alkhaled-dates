@@ -1,589 +1,282 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تمور الخالد | Alkhaled Dates</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary-dark: #1b4332;   /* أخضر زمردي فاخر */
-            --primary-main: #2d6a4f;
-            --accent-gold: #c59b27;    /* ذهبي نجد */
-            --accent-gold-light: #fef9e7;
-            --bg-light: #fdfbf7;       /* خلفية دافئة مريحة */
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
-            --white: #ffffff;
-            --dark-footer: #0a1912;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Top Bar */
-        .top-bar {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            text-align: center;
-            padding: 0.4rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        /* Header / Navbar */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 8%;
-            background-color: var(--white);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-
-        .logo-img-nav {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-gold);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 1.8rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--accent-gold);
-        }
-
-        .btn-gold {
-            background: linear-gradient(135deg, var(--accent-gold), #d4af37);
-            color: var(--white);
-            padding: 0.6rem 1.4rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(197, 155, 39, 0.3);
-        }
-
-        .btn-gold:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(197, 155, 39, 0.4);
-        }
-
-        /* Hero Banner (Atayb Inspired) */
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(13, 25, 18, 0.92)), url('hero-bg.jpg') center/cover no-repeat;
-            color: var(--white);
-            padding: 6rem 8%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-badge {
-            background-color: rgba(197, 155, 39, 0.2);
-            border: 1px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 0.3rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            margin-bottom: 0.8rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 650px;
-            color: #e5e7eb;
-            margin-bottom: 2rem;
-        }
-
-        /* Feature Strip (مستوحى من مميزات أطايب) */
-        .features-strip {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            padding: 2.5rem 8%;
-            background: var(--white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            margin-top: -2rem;
-            position: relative;
-            z-index: 10;
-            border-radius: 12px;
-            width: 88%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--accent-gold-light);
-            color: var(--accent-gold);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
-
-        .feature-text h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .feature-text p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Product Categories */
-        .section-title {
-            text-align: center;
-            margin: 4rem 0 2.5rem 0;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-top: 0.3rem;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 2rem;
-            padding: 0 8% 4rem 8%;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #e5e7eb;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background-color: var(--accent-gold);
-            color: var(--white);
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
-            z-index: 2;
-        }
-
-        .product-img {
-            width: 100%;
-            height: 200px;
-            background-color: #f3f4f6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--primary-main);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-info h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .product-info p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
-            flex-grow: 1;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #f3f4f6;
-            padding-top: 1rem;
-        }
-
-        .product-btn {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            transition: background 0.2s;
-        }
-
-        .product-btn:hover {
-            background-color: var(--primary-main);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-footer);
-            color: var(--white);
-            padding: 4rem 8% 2rem 8%;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            color: var(--accent-gold);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-col ul li a {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--white);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.8rem;
-            margin-top: 1rem;
-        }
-
-        .social-btn {
-            width: 38px;
-            height: 38px;
-            background-color: rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: background 0.2s;
-        }
-
-        .social-btn:hover {
-            background-color: var(--accent-gold);
-            color: var(--dark-footer);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .payment-methods {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .pay-card {
-            background-color: var(--white);
-            color: #1f2937;
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .copyright {
-            color: #9ca3af;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .features-strip { width: 100%; margin-top: 0; border-radius: 0; }
-            header { flex-direction: column; gap: 1rem; }
-            .footer-bottom { flex-direction: column; text-align: center; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متجر التمور الفاخرة</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts (Cairo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    /* Keyframe للـ Ticker / الشريط المتحرك */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 18s linear infinite;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-[#FAF8F5] text-gray-800">
 
-    <!-- Top Ribbon Bar -->
-    <div class="top-bar">
-        🌴 شحن سريع وخدمة توريد متكاملة لكافة المناطق والدول | تمور الخالد الفاخرة
+  <!-- 1. شريط الإعلانات العلوي المتحرك -->
+  <div class="bg-[#5C3D2E] text-[#E0C097] py-2 overflow-hidden text-sm font-semibold border-b border-[#E0C097]/20">
+    <div class="animate-marquee whitespace-nowrap justify-around">
+      <span>● التوصيل مجاني للطلبات فوق 399 ريال ●</span>
+      <span>● ضمان ألماسي وجودة عالية على جميع المنتجات ●</span>
+      <span>● توصيل مبرد لجميع المناطق ●</span>
+      <span>● التوصيل مجاني للطلبات فوق 399 ريال ●</span>
+      <span>● ضمان ألماسي وجودة عالية على جميع المنتجات ●</span>
+      <span>● توصيل مبرد لجميع المناطق ●</span>
+    </div>
+  </div>
+
+  <!-- 2. الهيدر و القائمة العلوية -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      
+      <!-- الشعار -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#5C3D2E] text-[#E0C097] flex items-center justify-center rounded-full font-bold text-xl">
+          ت
+        </div>
+        <a href="#" class="text-2xl font-extrabold text-[#5C3D2E]">متجر التمور</a>
+      </div>
+
+      <!-- روابط الملاحة -->
+      <nav class="hidden md:flex gap-8 font-semibold text-gray-700">
+        <a href="#" class="text-[#5C3D2E] hover:text-[#B85C38] transition">الرئيسية</a>
+        <a href="#categories" class="hover:text-[#5C3D2E] transition">الأقسام</a>
+        <a href="#products" class="hover:text-[#5C3D2E] transition">المنتجات</a>
+        <a href="#features" class="hover:text-[#5C3D2E] transition">مميزاتنا</a>
+      </nav>
+
+      <!-- البحث والسلة -->
+      <div class="flex items-center gap-5 text-gray-700">
+        <button class="hover:text-[#5C3D2E] text-lg"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="relative cursor-pointer">
+          <i class="fa-solid fa-bag-shopping text-xl hover:text-[#5C3D2E]"></i>
+          <span class="absolute -top-2 -right-2 bg-[#B85C38] text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">2</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 3. القسم الرئيسي (Hero Section) -->
+  <section class="relative bg-[#2D1E18] text-white py-20 px-4 text-center">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-[#E0C097] text-sm font-bold tracking-widest uppercase mb-2 block">أجود أنواع التمور السعودية</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">ننتقي لكم التمور من مصادرها الأصيلة</h1>
+      <p class="text-gray-300 text-lg mb-8">طعم فاخر وتغليف عصري يصلك مبرداً حتى باب منزلكم.</p>
+      <a href="#products" class="bg-[#E0C097] text-[#2D1E18] font-bold px-8 py-3 rounded-full hover:bg-white transition shadow-lg inline-block">تسوق الآن</a>
+    </div>
+  </section>
+
+  <!-- 4. أقسام التمور (Categories) -->
+  <section id="categories" class="container mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center text-[#5C3D2E] mb-10">اكتشف أقسامنا</h2>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+      <!-- كارت قسم -->
+      <div class="bg-white p-4 rounded-2xl shadow-sm text-center hover:shadow-md transition border border-gray-100 cursor-pointer">
+        <div class="w-16 h-16 mx-auto mb-3 bg-[#FAF8F5] rounded-full flex items-center justify-center text-2xl">🌴</div>
+        <h3 class="font-bold text-gray-800">سكري</h3>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm text-center hover:shadow-md transition border border-gray-100 cursor-pointer">
+        <div class="w-16 h-16 mx-auto mb-3 bg-[#FAF8F5] rounded-full flex items-center justify-center text-2xl">🍯</div>
+        <h3 class="font-bold text-gray-800">خلاص</h3>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm text-center hover:shadow-md transition border border-gray-100 cursor-pointer">
+        <div class="w-16 h-16 mx-auto mb-3 bg-[#FAF8F5] rounded-full flex items-center justify-center text-2xl">✨</div>
+        <h3 class="font-bold text-gray-800">صقعي</h3>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm text-center hover:shadow-md transition border border-gray-100 cursor-pointer">
+        <div class="w-16 h-16 mx-auto mb-3 bg-[#FAF8F5] rounded-full flex items-center justify-center text-2xl">👑</div>
+        <h3 class="font-bold text-gray-800">مجدول</h3>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm text-center hover:shadow-md transition border border-gray-100 cursor-pointer">
+        <div class="w-16 h-16 mx-auto mb-3 bg-[#FAF8F5] rounded-full flex items-center justify-center text-2xl">🎁</div>
+        <h3 class="font-bold text-gray-800">التقديمات</h3>
+      </div>
+      <div class="bg-white p-4 rounded-2xl shadow-sm text-center hover:shadow-md transition border border-gray-100 cursor-pointer">
+        <div class="w-16 h-16 mx-auto mb-3 bg-[#FAF8F5] rounded-full flex items-center justify-center text-2xl">☕</div>
+        <h3 class="font-bold text-gray-800">قهوة وشعبيات</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. شبكة المنتجات (Products Grid) -->
+  <section id="products" class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#5C3D2E]">منتجات خلاص القصيم</h2>
+      <a href="#" class="text-[#B85C38] font-bold hover:underline">عرض الكل</a>
     </div>
 
-    <!-- Header -->
-    <header>
-        <a href="#" class="logo">
-            <img src="logo.jpg" alt="تمور الخالد" class="logo-img-nav">
-            <span>تمور الخالد | Alkhaled Dates</span>
-        </a>
-        <nav>
-            <a href="#home">الرئيسية</a>
-            <a href="#products">الأصناف والتغليف</a>
-            <a href="#features">لماذا تمور الخالد؟</a>
-            <a href="#contact" class="btn-gold">طلب بكميات / جملة</a>
-        </nav>
-    </header>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      
+      <!-- بطاقة منتج 1 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition relative flex flex-col justify-between">
+        <span class="absolute top-3 right-3 bg-[#B85C38] text-white text-xs font-bold px-3 py-1 rounded-full z-10">جديد</span>
+        <div>
+          <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <i class="fa-solid fa-box-open text-5xl text-gray-300"></i>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1 text-gray-800">خلاص القصيم فاخر مصنع 6 كيلو</h3>
+            <p class="text-xs text-gray-500 mb-3">12 عبوة - وزن العبوة 0.5 كيلو</p>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-xl font-extrabold text-[#5C3D2E]">170 ر.س</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <button class="w-full bg-[#5C3D2E] hover:bg-[#2D1E18] text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cart-plus"></i> إضافة للسلة
+          </button>
+        </div>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <span class="hero-badge">ضيافة أصلية وجودة عالية</span>
-        <h1>أجود تمور المملكة المنسقة بعناية</h1>
-        <p>نقدم أفضل أصناف التمور الفاخرة المعبأة بأسلوب مدروس يلبي تطلعات الإهداء والتصدير والضيافة الراقية.</p>
-        <a href="#products" class="btn-gold" style="padding: 0.8rem 2rem; font-size: 1.05rem;">تصفح تشكيلتنا</a>
-    </section>
+      <!-- بطاقة منتج 2 -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition relative flex flex-col justify-between">
+        <div>
+          <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <i class="fa-solid fa-box-open text-5xl text-gray-300"></i>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1 text-gray-800">خلاص القصيم مجروش يدوي ملكي</h3>
+            <p class="text-xs text-gray-500 mb-3">الوزن 2 كيلو</p>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-xl font-extrabold text-[#5C3D2E]">92 ر.س</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 pt-0">
+          <button class="w-full bg-[#5C3D2E] hover:bg-[#2D1E18] text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cart-plus"></i> إضافة للسلة
+          </button>
+        </div>
+      </div>
 
-    <!-- Features Strip Inspired by Atayb -->
-    <div class="features-strip" id="features">
-        <div class="feature-item">
-            <div class="feature-icon"><i class="fas fa-certificate"></i></div>
-            <div class="feature-text">
-                <h4>جودة معتمدة</h4>
-                <p>فرز واختبار دقيق للأصناف</p>
+      <!-- بطاقة منتج 3 (خصم) -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition relative flex flex-col justify-between">
+        <span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10">خصم خاص</span>
+        <div>
+          <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <i class="fa-solid fa-box-open text-5xl text-gray-300"></i>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1 text-gray-800">بكج الخلاص المجروش</h3>
+            <p class="text-xs text-gray-500 mb-3">4 أكياس - وزن الكيس 2 كيلو</p>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-xl font-extrabold text-[#5C3D2E]">320 ر.س</span>
+              <span class="text-sm text-gray-400 line-through">368 ر.س</span>
             </div>
+          </div>
         </div>
-        <div class="feature-item">
-            <div class="feature-icon"><i class="fas fa-box-open"></i></div>
-            <div class="feature-text">
-                <h4>تغليف فاخر</h4>
-                <p>تصاميم إهداء وتصدير عصرية</p>
+        <div class="p-4 pt-0">
+          <button class="w-full bg-[#5C3D2E] hover:bg-[#2D1E18] text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cart-plus"></i> إضافة للسلة
+          </button>
+        </div>
+      </div>
+
+      <!-- بطاقة منتج 4 (نفدت الكمية) -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden opacity-75 relative flex flex-col justify-between">
+        <span class="absolute top-3 right-3 bg-gray-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10">نفدت الكمية</span>
+        <div>
+          <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <i class="fa-solid fa-box-open text-5xl text-gray-300"></i>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-1 text-gray-800">خلاص القصيم فاخر مصنع 8 كيلو</h3>
+            <p class="text-xs text-gray-500 mb-3">8 عبوات - وزن العبوة 1 كيلو</p>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-xl font-extrabold text-gray-600">220 ر.س</span>
             </div>
+          </div>
         </div>
-        <div class="feature-item">
-            <div class="feature-icon"><i class="fas fa-truck"></i></div>
-            <div class="feature-text">
-                <h4>توصيل آمن</h4>
-                <p>شحن سريع يحافظ على الطعم</p>
-            </div>
+        <div class="p-4 pt-0">
+          <button disabled class="w-full bg-gray-300 text-gray-500 font-bold py-2.5 rounded-xl cursor-not-allowed">
+            نفدت الكمية
+          </button>
         </div>
-        <div class="feature-item">
-            <div class="feature-icon"><i class="fas fa-handshake"></i></div>
-            <div class="feature-text">
-                <h4>عقود جملة</h4>
-                <p>أسعار خاصة للشركات والشركاء</p>
-            </div>
-        </div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Products Section -->
-    <section id="products">
-        <div class="section-title">
-            <h2>تشكيلة تمور الخالد الفاخرة</h2>
-            <p>اختر ما يناسب ذوقك من التمور النثرية، المحشية، وعلب التقديم</p>
+  <!-- 6. مميزات المتجر (Features) -->
+  <section id="features" class="bg-white py-12 border-t border-b border-gray-100 my-12">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="flex flex-col items-center">
+        <div class="w-14 h-14 bg-[#FAF8F5] text-[#5C3D2E] rounded-full flex items-center justify-center text-2xl mb-3">
+          <i class="fa-solid fa-shield-halved"></i>
         </div>
+        <h4 class="font-bold text-lg mb-1">ثقة وجودة</h4>
+        <p class="text-gray-500 text-sm">ضمان ألماسي على جميع منتجات التمور</p>
+      </div>
 
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <span class="product-badge">فاخر VIP</span>
-                <div class="product-img">🌴</div>
-                <div class="product-info">
-                    <h3>تمر مجدول (Medjool)</h3>
-                    <p>تمر مجدول ملكي مميز بحجمه الكبير وقوامه الطري المفضل عالمياً.</p>
-                    <div class="product-footer">
-                        <span style="font-weight: 800; color: var(--primary-dark);">أعلى جودة</span>
-                        <a href="#contact" class="product-btn">طلب المنتج</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <span class="product-badge">الأكثر طلباً</span>
-                <div class="product-img">✨</div>
-                <div class="product-info">
-                    <h3>سكري القصيم الملكي</h3>
-                    <p>تمر سكري مفتل ملكي محفوف بالعناية ومناسب لكافة مناسبات الضيافة.</p>
-                    <div class="product-footer">
-                        <span style="font-weight: 800; color: var(--primary-dark);">درجة أولى</span>
-                        <a href="#contact" class="product-btn">طلب المنتج</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <span class="product-badge">هدايا وتوزيعات</span>
-                <div class="product-img">🎁</div>
-                <div class="product-info">
-                    <h3>بكج محاشي التمور</h3>
-                    <p>تمر خلاص وسكري محشي بالمكسرات الفاخرة ومغلف بعبوات التقديم.</p>
-                    <div class="product-footer">
-                        <span style="font-weight: 800; color: var(--primary-dark);">تشكيلة خاصة</span>
-                        <a href="#contact" class="product-btn">طلب المنتج</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <span class="product-badge">تصدير</span>
-                <div class="product-img">🥇</div>
-                <div class="product-info">
-                    <h3>تمر خلاص وصقعي</h3>
-                    <p>أصناف ممتازة معبأة تحت تفريغ الهواء للحفاظ على جودتها ونكهتها.</p>
-                    <div class="product-footer">
-                        <span style="font-weight: 800; color: var(--primary-dark);">كميات وجملة</span>
-                        <a href="#contact" class="product-btn">طلب المنتج</a>
-                    </div>
-                </div>
-            </div>
+      <div class="flex flex-col items-center">
+        <div class="w-14 h-14 bg-[#FAF8F5] text-[#5C3D2E] rounded-full flex items-center justify-center text-2xl mb-3">
+          <i class="fa-solid fa-truck-fast"></i>
         </div>
-    </section>
+        <h4 class="font-bold text-lg mb-1">توصيل مبرد</h4>
+        <p class="text-gray-500 text-sm">توصيل حراري ومبرد لكافة المناطق لضمان الجودة</p>
+      </div>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>عن تمور الخالد</h4>
-                <p style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 1rem;">نحرص على تقديم أجود أصناف التمور العربية بمفاهيم تعبئة وتغليف حديثة تلائم التصدير والضيافة الراقية.</p>
-                <div class="social-links">
-                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-btn"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>روابط سريعة</h4>
-                <ul>
-                    <li><a href="#home">الرئيسية</a></li>
-                    <li><a href="#products">المنتجات</a></li>
-                    <li><a href="#features">مميزاتنا</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>التواصل المباشر</h4>
-                <ul>
-                    <li><a href="mailto:info@alkhaleddates.com"><i class="fas fa-envelope"></i> info@alkhaleddates.com</a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i> طلبات الجملة والتصدير</a></li>
-                </ul>
-            </div>
+      <div class="flex flex-col items-center">
+        <div class="w-14 h-14 bg-[#FAF8F5] text-[#5C3D2E] rounded-full flex items-center justify-center text-2xl mb-3">
+          <i class="fa-solid fa-credit-card"></i>
         </div>
+        <h4 class="font-bold text-lg mb-1">دفع آمن وقسط مرن</h4>
+        <p class="text-gray-500 text-sm">مدى، فيزا، أبل باي، تابي، وتمارا</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="footer-bottom">
-            <div class="copyright">
-                © 2026 تمور الخالد (Alkhaled Dates). جميع الحقوق محفوظة.
-            </div>
-            <div class="payment-methods">
-                <span class="pay-card" style="color:#1a1f71"><i class="fab fa-cc-visa"></i> VISA</span>
-                <span class="pay-card" style="color:#eb001b"><i class="fab fa-cc-mastercard"></i> MasterCard</span>
-                <span class="pay-card" style="color:#000000"><i class="fab fa-apple"></i> Pay</span>
-                <span class="pay-card" style="color:#00a3e0;">مدى mada</span>
-            </div>
+  <!-- 7. الفوتر (Footer) -->
+  <footer class="bg-[#2D1E18] text-gray-300 pt-12 pb-6">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-white font-bold text-xl mb-4">عن المتجر</h3>
+        <p class="text-sm leading-relaxed text-gray-400">
+          ننتقي لكم أجود أنواع التمور الفاخرة من مصادرها الأصلية بكل عناية وتغليف متميز ليليق بمناسباتكم.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-white font-bold text-xl mb-4">روابط مهمة</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-white transition">سياسة الاستبدال والاسترجاع</a></li>
+          <li><a href="#" class="hover:text-white transition">الأسئلة الشائعة</a></li>
+          <li><a href="#" class="hover:text-white transition">سياسة الخصوصية</a></li>
+          <li><a href="#" class="hover:text-white transition">اتصل بنا</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-bold text-xl mb-4">التوثيق والدعم</h3>
+        <p class="text-sm text-gray-400 mb-2">السجل التجاري: 1010xxxxxx</p>
+        <p class="text-sm text-gray-400 mb-4">الرقم الضريبي: 31012xxxxxx</p>
+        <div class="flex gap-4 text-xl text-[#E0C097]">
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
         </div>
-    </footer>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+      جميع الحقوق محفوظة © 2026 متجر التمور الفاخرة
+    </div>
+  </footer>
 
 </body>
 </html>
