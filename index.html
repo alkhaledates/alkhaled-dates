@@ -111,10 +111,10 @@
             box-shadow: 0 6px 15px rgba(197, 155, 39, 0.4);
         }
 
-        /* Hero Banner */
+        /* Hero Banner (Atayb Inspired) */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(13, 25, 18, 0.92)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            background: linear-gradient(rgba(27, 67, 50, 0.88), rgba(13, 25, 18, 0.92)), url('hero-bg.jpg') center/cover no-repeat;
             color: var(--white);
             padding: 6rem 8%;
             text-align: center;
@@ -149,7 +149,7 @@
             margin-bottom: 2rem;
         }
 
-        /* Feature Strip */
+        /* Feature Strip (مستوحى من مميزات أطايب) */
         .features-strip {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -250,23 +250,15 @@
             z-index: 2;
         }
 
-        /* تعديلات نمط صور المنتجات */
-        .product-img-wrapper {
+        .product-img {
             width: 100%;
-            height: 220px;
-            overflow: hidden;
+            height: 200px;
             background-color: #f3f4f6;
-        }
-
-        .product-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-img-wrapper img {
-            transform: scale(1.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-main);
         }
 
         .product-info {
@@ -431,7 +423,7 @@
     <!-- Header -->
     <header>
         <a href="#" class="logo">
-            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=150&q=80" alt="تمور الخالد" class="logo-img-nav">
+            <img src="logo.jpg" alt="تمور الخالد" class="logo-img-nav">
             <span>تمور الخالد | Alkhaled Dates</span>
         </a>
         <nav>
@@ -450,7 +442,7 @@
         <a href="#products" class="btn-gold" style="padding: 0.8rem 2rem; font-size: 1.05rem;">تصفح تشكيلتنا</a>
     </section>
 
-    <!-- Features Strip -->
+    <!-- Features Strip Inspired by Atayb -->
     <div class="features-strip" id="features">
         <div class="feature-item">
             <div class="feature-icon"><i class="fas fa-certificate"></i></div>
@@ -493,9 +485,7 @@
             <!-- Product 1 -->
             <div class="product-card">
                 <span class="product-badge">فاخر VIP</span>
-                <div class="product-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80" alt="تمر مجدول">
-                </div>
+                <div class="product-img">🌴</div>
                 <div class="product-info">
                     <h3>تمر مجدول (Medjool)</h3>
                     <p>تمر مجدول ملكي مميز بحجمه الكبير وقوامه الطري المفضل عالمياً.</p>
@@ -509,9 +499,7 @@
             <!-- Product 2 -->
             <div class="product-card">
                 <span class="product-badge">الأكثر طلباً</span>
-                <div class="product-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1609100346338-7243c4a2db65?auto=format&fit=crop&w=600&q=80" alt="سكري القصيم الملكي">
-                </div>
+                <div class="product-img">✨</div>
                 <div class="product-info">
                     <h3>سكري القصيم الملكي</h3>
                     <p>تمر سكري مفتل ملكي محفوف بالعناية ومناسب لكافة مناسبات الضيافة.</p>
@@ -525,9 +513,7 @@
             <!-- Product 3 -->
             <div class="product-card">
                 <span class="product-badge">هدايا وتوزيعات</span>
-                <div class="product-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=600&q=80" alt="بكج محاشي التمور">
-                </div>
+                <div class="product-img">🎁</div>
                 <div class="product-info">
                     <h3>بكج محاشي التمور</h3>
                     <p>تمر خلاص وسكري محشي بالمكسرات الفاخرة ومغلف بعبوات التقديم.</p>
@@ -541,9 +527,7 @@
             <!-- Product 4 -->
             <div class="product-card">
                 <span class="product-badge">تصدير</span>
-                <div class="product-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="تمر خلاص وصقعي">
-                </div>
+                <div class="product-img">🥇</div>
                 <div class="product-info">
                     <h3>تمر خلاص وصقعي</h3>
                     <p>أصناف ممتازة معبأة تحت تفريغ الهواء للحفاظ على جودتها ونكهتها.</p>
